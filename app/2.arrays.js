@@ -4,46 +4,63 @@ console.log('Arrays');
 // Создать массив. Получить последний элемент массива.
 // 1.    Без удаления этого элемента из массива.
 // 2.    С удалением этого элемента из массива
-
-
+const arr1 = [1, 3, 5, 5, 34];
+console.log(arr1[arr1.length - 1]);
+console.log(arr1.pop());
 
 // Task 02
 // Создать массив. Добавить элемент в конец массива.
 // 1    Получить тот же массив
 // 2    Получить новый массив
-
-
+const arr2 = [1, 3, 5, 5, 34];
+const a23 = [1, 1, 5];
+arr2.push(444)
+console.log(arr2);
+const arr22 = [...arr2, 444];
+console.log(arr22);
+const arr23 = [...arr2, ...a23];
+console.log(arr23);
 
 // Task 03
 // Создать массив. Обойти элементы массива и вывести их в консоль.
+const arr3 = [1, 3, 5, 5, 34];
+for (let e of arr3){
+    console.log(e);
+}
+
 
 
 
 // Task 04
 // Создать массив чисел в диапазоне от 0 до 100.
 // Вывети сумму тех элементов, которые удовлетворяют условию arr[i] > 50.
-
+//const arr = Array.from(Array(100).keys());
+//console.log(arr.filter(e => e > 50).reduce((sum,el) => sum + el));
 
 
 // Task 05
 // Создать массив строк. На основе этого массива создать строку –
 // объдинить все элементы массива используя определенный разделитель.
-
-
+const arr5 = ['1', '13', '511', '6'];
+console.log(arr5.join(','));
 
 // Task 06
 // Создать массив чисел от 1 до 20 в случайном порядке.
 // Отcортировать массив по возрастанию. Получить массив отсортрованный
 // в обратном порядке и вывести его в консоль.
-
-
+const arr6 = ['1', '13', '511', '6'];
+console.log(arr6.sort((a,b) => a-b ));
+console.log(arr6.sort((a,b) => b-a ));
+console.log(arr6.sort((a,b) => a-b ).reverse());
 
 // Task 07
 // Создать массив [3, 0, -1, 12, -2, -4, 0, 7, 2]
 // На его основе создать новый массив [-1, -2, -4, 0, 0, 3, 12, 7, 2] –
 // сначала отрицательные числа, затем нули, затем положительные числа.
 // Порядок оставить без изменения.
-
+const arr7 =[3, 0, -1, 12, -2, -4, 0, 7, 2];
+const newArr = [].concat(arr7.filter((el) => el < 0), arr7.filter((el) => el === 0), arr7.filter((el) => el > 0));
+console.log(newArr);
 
 
 // Task 08
@@ -54,25 +71,42 @@ console.log('Arrays');
 // 4. Удалите первое значение массива и выведите его alert.
 // 5. Добавьте в начало значения «Рэп» и «Регги».
 
+const array8 =['Джаз', 'Блюз'];
+array8.push('Рок-н-Ролл');
+array8.splice(array8.length-2, 1, 'Classic');
+console.log(array8);
+array8.splice(1,1);
+array8.unshift('Rap', 'Reggie');
+console.log(array8);
 
 
 // Task 09
 // Подсчитать в указанной строке отдельно количество букв r, k, t.
 // dskjdhfkjshdfkjhsdkjureyteiruyiqywehjkh
-
-
+const str = 'dskjdhfkjshdfkjhsdkjureyteiruyiqywehjkh';
+const ff = [...str];
+console.log(ff.filter((el) => el === 'k').length);
 
 // Task 10
 // Создать массив. Получить случайный элемент из массива.
-
+const arr10 =['Джаз', 'Блюз'];
+const i = Math.round(Math.random() * (arr10.length-1));
+console.log(arr10[i]);
 
 
 // Task 11
 // Создайте функцию filterRange(arr, a, b), которая принимает массив чисел arr
 // и возвращает новый массив, который содержит только числа из arr
 // из диапазона от a до b.Функция не должна менять arr.
+// const arr10 =['Джаз', 'Блюз'];
+//
+ function filterRange(arr, a, b) {
+     return arr.filter((el) => el >= a && el <= b);
+ }
 
-
+ const arr11 = [1,2,3,4,5,6,7,8,9,10];
+ console.log(filterRange(arr11,2,6));
+ console.log(filterRange(arr11,5,9));
 
 // Task 12
 // Создать двумерный массив:
@@ -80,14 +114,18 @@ console.log('Arrays');
 // 4 5 6
 // 7 8 9
 // Вывести его в консоль.
-
-
+const arr12 = [[1,2,3], [4,5,6], [7,8,9]];
+arr12.forEach(e => console.log(e));
 
 
 // Task 13
 // Преобразовать двумерный массив в одномерный.
+const arr13 = [[1,2,3], [4,5,6], [7,8,9]];
 
-
+arr13.forEach( item => {
+    newArr.push(...item);
+});
+console.log(newArr);
 
 // Task 14
 // Создать FIFO (first-in, first-out) очередь.
@@ -96,7 +134,13 @@ console.log('Arrays');
 // - функция - конструктор,
 // - класс.
 
+function get(arr) {
+    arr.shift();
+}
 
+function set(el) {
+    arr.push(el);
+}
 
 // Task 15
 // Создать массив. На основе получить другой массив – подмножество элементов
@@ -107,21 +151,14 @@ console.log('Arrays');
 
 // Task 16
 // Создать массив. Найти индекс указаного элемента в массиве.
-arr = [1, 44, 45, 2, 12, 33, 31];
-console.log(arr.indexOf(12));
+
+
 
 // Task 17
 // Создать массив с дублями элементов. На его основе создать массив
 // уникальных элементов (удалить дубли).
-arr = [1, 44, 45, 1, 12, 33, 12];
-var arrB = [];
-arr.forEach( 
-    function(e) {
-        if(!arrB.includes(e)) 
-            arrB.push(e);
-    }
-);
-console.log(arrB);
+
+
 
 // Task 18
 // Создать массив с дублями. Найти первый элемент, который дублируется.
